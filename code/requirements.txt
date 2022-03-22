@@ -1,4 +1,4 @@
 pillow
 tk
 mysql 
-mysql-connector
+mysql-connector-python
