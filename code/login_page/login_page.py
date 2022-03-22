@@ -34,27 +34,27 @@ label_font = font.Font(family="Comic Sans MS", size=13, weight = "bold")
 text_font = font.Font(family="Comic Sans MS", size=13)
 rollNo_message = Message(root, text="Enter Roll No:",
                          width=200, font=label_font)
-rollNo_message.place(relx=0.5, rely=0.4)
-rollNo_text = Text(root,height = 1.3,width = 45, font = text_font, bg = "white", fg = "black")
-rollNo_text.place(relx = 0.51, rely = 0.45 )
+rollNo_message.place(relx=0.54, rely=0.4)
+rollNo_text = Entry(root,font = text_font, bg = "white", fg = "black", show = "*", width = 45)
+rollNo_text.place(relx = 0.55, rely = 0.45 )
 
 #PasswordLabel
 rollNo_message = Message(root, text="Password:",
                          width=200, font=label_font)
-rollNo_message.place(relx=0.5, rely=0.55)
-rollNo_text = Text(root,height = 1.3,width = 45, font = text_font, bg = "white", fg = "black")
-rollNo_text.place(relx = 0.51, rely = 0.6 )
+rollNo_message.place(relx=0.54, rely=0.55)
+rollNo_text = Entry(root,font = text_font, bg = "white", fg = "black", show = "*", width = 45)
+rollNo_text.place(relx = 0.55, rely = 0.6 )
 
 #CancelButton
 cancel_image = Image.open("images/Cancel_button.png")
 cancel_image = ImageTk.PhotoImage(cancel_image)
 cancel_button = Button(root, image = cancel_image)
-cancel_button.place(relx = 0.75, rely = 0.85)
+cancel_button.place(relx = 0.60, rely = 0.85)
 
 #LogInButton
 login_image = Image.open("images/LogIn_button.png")
 login_image = ImageTk.PhotoImage(login_image)
 cancel_button = Button(root, image = login_image)
-cancel_button.place(relx = 0.87, rely = 0.85)
+cancel_button.place(relx = 0.73, rely = 0.85)
 
 root.mainloop()
