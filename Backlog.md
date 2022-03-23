@@ -1,0 +1,3 @@
+-   Ganeshan and Ron to work on TKinter - create UI elements.
+-   Gopaal to work on converting Class diagram to models and identify changes necessary to the class diagram.
+-   Ashwin to work on creating a database connector and link UI and models with DB to work together.
