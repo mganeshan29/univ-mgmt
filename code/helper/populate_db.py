@@ -5,4 +5,3 @@ class populate_db:
 
     def __init__(self):
         self.conn = register_database()
-        

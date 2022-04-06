@@ -5,6 +5,10 @@ class register_database:
         self.con1=mysql.connector.connect(host='localhost', user='admin', password='password',database='univmgmt')
         self.cursor1=self.con1.cursor()
 
+    def createTable(self, query):
+        self.cursor1.execute(query)
+        self.con1.commit()
+
     def insert(self,query):
         self.cursor1.execute(query)
         self.con1.commit()
@@ -28,9 +32,3 @@ class register_database:
         row = self.cursor1.fetchall()
         self.con1.commit()
         return row
-
-    # def inserRondi(self, query):
-    #     self.cursor1.execute('''
-    #     INSERT INTO AUTH VALUES("rondi2", "rondirondi");
-    #     ''')
-    #     self.con1.commit()

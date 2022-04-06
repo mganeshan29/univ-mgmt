@@ -1,6 +1,3 @@
-from tkinter import E
-
-
 class Mark:
     def __init__(self, exam, role_no, marks, pass_marks, total):
         self.exam = exam
