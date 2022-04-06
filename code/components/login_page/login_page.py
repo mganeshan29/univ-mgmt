@@ -8,7 +8,7 @@ from ..dashboard import dashboard
 
 
 class LoginPage:
-    def __init__(self, master=None):
+    def __init__(self, role, master=None):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
         self.toplevel1.title("University Management System")
@@ -52,7 +52,6 @@ class LoginPage:
         
         #Login_Button and Cancel Button
         login_button = tk.Button(self.toplevel1,command = self.openDashboard)
-        login_button.configure(text='Login', font = self.text_font, bg = "#ca0a4a", fg = "white", activebackground = "#C1174b")
         login_button.place(anchor='nw', height='30', relx='0.55', rely='0.7', width='250', x='0', y='0')
         
         cancel_button = tk.Button(self.toplevel1)
