@@ -1,6 +1,5 @@
 from ..helper import db_connector as dbc
 
-
 class Faculty:
     def __init__(self):
       db = dbc.register_database()

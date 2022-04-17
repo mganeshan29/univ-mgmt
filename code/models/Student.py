@@ -1,6 +1,5 @@
 from ..helper import db_connector as dbc
 
-
 class Student:
     def __init__(self):
         db = dbc.register_database()
@@ -40,20 +39,34 @@ class Student:
         # rollNo = row[0], father_name=row[1], mother_name=row[2], phone_no=row[3],
         #             address=row[4], email=row[5], dob=row[6], gender=row[7], password=row[8]}
         s = {}
-        s["rollNo"] = row[0]
-        s["father_name"] = row[1]
-        s["mother_name"] = row[2]
-        s["phone_no"] = row[3]
-        s["address"] = row[4]
-        s["email"] = row[5]
-        s["dob"] = row[6]
-        s["gender"] = row[7]
-        s["password"] = row[8]
+        s["name"] = row[0]
+        s["rollNo"] = row[1]
+        s["father_name"] = row[2]
+        s["mother_name"] = row[3]
+        s["phone_no"] = row[4]
+        s["address"] = row[5]
+        s["email"] = row[6]
+        s["dob"] = row[7]
+        s["gender"] = row[8]
+        s["password"] = row[9]
         return s
 
     def authenticate(self, rollNo, password):
         db = dbc.register_database()
         query = "SELECT * FROM STUDENT WHERE rollno = '" + rollNo +"' and password = '" + password + "';"
         row = db.select(query, None)
-        pass
-        
+        if row:
+            s = {}
+            s["name"] = row[0]
+            s["rollNo"] = row[1]
+            s["father_name"] = row[2]
+            s["mother_name"] = row[3]
+            s["phone_no"] = row[4]
+            s["address"] = row[5]
+            s["email"] = row[6]
+            s["dob"] = row[7]
+            s["gender"] = row[8]
+            s["password"] = row[9]
+            return s
+        else:
+            return None

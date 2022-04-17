@@ -1,12 +1,15 @@
-import pathlib
 import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
 
+from ..login_page.login_page import LoginPage
+
 
 class DashBoard:
-    def __init__(self, master=None):
+
+    def __init__(self, title='', master=None):
+        self.title = title
         # build ui
         root = tk.Tk() if master is None else tk.Toplevel(master)
         root.title("University Management System")
@@ -52,7 +55,7 @@ class DashBoard:
                           rely='0.09', width='290', x='0', y='0')
         dash_message = tk.Message(root, font=self.header_font)
         dash_message.configure(
-            background='white', foreground='#ca0a4a', text='Dashboard', width='200')
+            background='white', foreground='#ca0a4a', text='Welcome '+self.title, width='200')
         dash_message.place(anchor='nw', height='80', relx='0.323',
                            rely='0.10', width='280', x='0', y='0')
 
@@ -76,12 +79,15 @@ class DashBoard:
         profile_button.place(anchor='nw', height='188', relx='0.05',
                          rely='0.65', width='188', x='0', y='0')
         
-        logout_button = tk.Button(root, bg="white", image=logOut_image)
+        logout_button = tk.Button(root, bg="white", image=logOut_image, command=self.logout)
         logout_button.image = logOut_image
         logout_button.place(anchor='nw', height='188', relx='0.38',
                          rely='0.65', width='188', x='0', y='0')
 
-
         root.configure(height='200', width='200')
 
         root.mainloop()
+
+    # def logout(self):
+    #     self.root.destroy()
+    #     LoginPage()

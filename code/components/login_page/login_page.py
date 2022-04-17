@@ -3,12 +3,12 @@ import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
 
+from ...models.Student import Student
+
 from ..dashboard import dashboard
 
-
-
 class LoginPage:
-    def __init__(self, role, master=None):
+    def __init__(self, master=None):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
         self.toplevel1.title("University Management System")
@@ -51,7 +51,7 @@ class LoginPage:
         password_message.place(anchor='nw', relx='0.53', rely='0.53', x='0', y='0')
         
         #Login_Button and Cancel Button
-        login_button = tk.Button(self.toplevel1,command = lambda:self.openDashboard())
+        login_button = tk.Button(self.toplevel1,command = lambda:self.openDashboard(username = name_entry.get(), password = password_entry.get()))
         login_button.configure(text='Login', font = self.text_font, bg = "#ca0a4a", fg = "white", activebackground = "#C1174b")
         login_button.place(anchor='nw', height='30', relx='0.55', rely='0.7', width='250', x='0', y='0')
         
@@ -66,10 +66,17 @@ class LoginPage:
     def authenticate(self, user, username, password):
         pass
         
-    def openDashboard(self):
-        self.toplevel1.destroy()
-        dashboard.DashBoard()
-        
+    def openDashboard(self, username = "", password = ""):
+        student = Student()
+        s = student.authenticate(username, password)
+        if s:
+            print(s["rollNo"]+ " is Authenticated")
+            self.toplevel1.destroy()
+            dashboard.DashBoard(s["name"])
+            # dashboard.DashBoard(role="Student", rollNo=s["rollNo"])
+        else:
+            print("Logic for faculty/librarian to be implemented")
+
     
     def run(self):
         self.mainwindow.mainloop()
