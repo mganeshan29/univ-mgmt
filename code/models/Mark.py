@@ -1,3 +1,5 @@
+from ..helper import db_connector as dbc
+
 class Mark:
     def __init__(self, exam, role_no, marks, pass_marks, total):
         self.exam = exam
@@ -7,16 +9,31 @@ class Mark:
         self.total = total
         db = dbc.register_database()
         db.createTable('''
-            CREATE TABLE IF NOT EXISTS MARKS (name varchar(50),
+            CREATE TABLE IF NOT EXISTS MARKS (exam varchar(50),
                                         rollNo varchar(25) NOT NULL PRIMARY KEY,
-                                        father_name varchar(25),
-                                        mother_name varchar(25),
-                                        phone_no varchar(25),
-                                        address varchar(25),
-                                        email varchar(50),
-                                        dob varchar(10),
-                                        gender varchar(15), 
-                                        password varchar(40)); 
-                                                                ''')
+                                        marks numeric,
+                                        passMarks numeric,
+                                        total numeric); 
+                                                        ''')
+
+    def insert(self, data):
+        db = dbc.register_database()
+        query = "INSERT INTO MARKS("
+        for i in data:
+            query += i + ","
+        query = query[:-1] + ") VALUES("
+        for i in data:
+            query += "'" + str(data[i]) + "',"
+        query = query[:-1] + ");"
+        db.insert(query)
+        print("Successfully inserted MARKS")
+        
+    def select(self, rollNo):
+        db = dbc.register_database()
+        query = "SELECT * FROM MARKS WHERE rollNo = '" + rollNo + " ';"
+        row = db.select(query, None)
+        
+        s = {"exam": row[0], "rollNo" : row[1], "marks" : row[2],"passMarks": row[3], "total" : row[4]}
+        return s 
 
         
