@@ -51,7 +51,8 @@ class LoginPage:
         password_message.place(anchor='nw', relx='0.53', rely='0.53', x='0', y='0')
         
         #Login_Button and Cancel Button
-        login_button = tk.Button(self.toplevel1,command = self.openDashboard)
+        login_button = tk.Button(self.toplevel1,command = lambda:self.openDashboard())
+        login_button.configure(text='Login', font = self.text_font, bg = "#ca0a4a", fg = "white", activebackground = "#C1174b")
         login_button.place(anchor='nw', height='30', relx='0.55', rely='0.7', width='250', x='0', y='0')
         
         cancel_button = tk.Button(self.toplevel1)
@@ -61,6 +62,9 @@ class LoginPage:
 
         # Main widget
         self.mainwindow = self.toplevel1
+    
+    def authenticate(self, user, username, password):
+        pass
         
     def openDashboard(self):
         self.toplevel1.destroy()

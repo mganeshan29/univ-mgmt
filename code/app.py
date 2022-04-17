@@ -4,6 +4,7 @@ import tkinter.ttk as ttk
 from .components.login_page import login_page
 
 class Application:
+    
     def __init__(self, master=None):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
