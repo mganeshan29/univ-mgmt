@@ -5,7 +5,6 @@ from PIL import Image, ImageTk
 
 from ...app import Application
 from ...models.Student import Student
-
 from ..dashboard import dashboard
 
 class LoginPage:
