@@ -3,12 +3,13 @@ import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
 
+from ...app import Application
 from ...models.Student import Student
 
 from ..dashboard import dashboard
 
 class LoginPage:
-    def __init__(self, role, master=None):
+    def __init__(self, master=None, role = "Student"):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
         self.toplevel1.title("University Management System")
@@ -55,7 +56,7 @@ class LoginPage:
         login_button.configure(text='Login', font = self.text_font, bg = "#ca0a4a", fg = "white", activebackground = "#C1174b")
         login_button.place(anchor='nw', height='30', relx='0.55', rely='0.7', width='250', x='0', y='0')
         
-        cancel_button = tk.Button(self.toplevel1)
+        cancel_button = tk.Button(self.toplevel1, command = lambda:self.goBack())
         cancel_button.configure(text='Cancel',font = self.text_font, bg = "white")
         cancel_button.place(anchor='nw', height='30', relx='0.55', rely='0.85', width='250', x='0', y='0')
         self.toplevel1.configure(height='200', width='200')
@@ -65,7 +66,11 @@ class LoginPage:
     
     def authenticate(self, user, username, password):
         pass
-        
+    
+    def goBack(self):
+        self.toplevel1.destroy()
+        Application()
+
     def openDashboard(self, username = "", password = ""):
         student = Student()
         s = student.authenticate(username, password)
