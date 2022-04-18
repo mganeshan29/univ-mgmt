@@ -3,7 +3,7 @@ import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
 
-from ..login_page.login_page import LoginPage
+from ..login_page import login_page as lp
 
 
 class DashBoard:

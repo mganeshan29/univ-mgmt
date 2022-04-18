@@ -1,4 +1,3 @@
-import pathlib
 import tkinter as tk
 import tkinter.ttk as ttk
 from .components.login_page import login_page

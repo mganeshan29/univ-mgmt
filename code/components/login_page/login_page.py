@@ -8,7 +8,7 @@ from ...models.Student import Student
 from ..dashboard import dashboard
 
 class LoginPage:
-    def __init__(self, master=None):
+    def __init__(self, role, master=None):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
         self.toplevel1.title("University Management System")

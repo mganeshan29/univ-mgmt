@@ -1,12 +1,12 @@
 from ..helper import db_connector as dbc
 
 class Mark:
-    def __init__(self, exam, role_no, marks, pass_marks, total):
-        self.exam = exam
-        self.role_no = role_no
-        self.marks = marks
-        self.pass_marks = pass_marks
-        self.total = total
+    def __init__(self):
+        # self.exam = exam
+        # self.role_no = role_no
+        # self.marks = marks
+        # self.pass_marks = pass_marks
+        # self.total = total
         db = dbc.register_database()
         db.createTable('''
             CREATE TABLE IF NOT EXISTS MARKS (exam varchar(50),
@@ -30,10 +30,11 @@ class Mark:
         
     def select(self, rollNo):
         db = dbc.register_database()
-        query = "SELECT * FROM MARKS WHERE rollNo = '" + rollNo + " ';"
+        query = "SELECT * FROM MARKS WHERE rollNo = '" + rollNo + "';"
         row = db.select(query, None)
         
         s = {"exam": row[0], "rollNo" : row[1], "marks" : row[2],"passMarks": row[3], "total" : row[4]}
         return s 
+
 
         
