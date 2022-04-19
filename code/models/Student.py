@@ -10,7 +10,7 @@ class Student:
                                         mother_name varchar(25),
                                         phone_no varchar(25),
                                         address varchar(25),
-                                        {email v}archar(50),
+                                        email varchar(50),
                                         dob varchar(10),
                                         gender varchar(15), 
                                         password varchar(40)); 

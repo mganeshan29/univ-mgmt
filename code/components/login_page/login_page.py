@@ -6,9 +6,10 @@ from PIL import Image, ImageTk
 from ...app import Application
 from ...models.Student import Student
 from ..dashboard import dashboard
+from ...helper import constants as const
 
 class LoginPage:
-    def __init__(self, master=None, role = "Student"):
+    def __init__(self, master=None, role = const.STUDENT_ROLE):
         # build ui
         self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
         self.toplevel1.title("University Management System")
@@ -63,9 +64,6 @@ class LoginPage:
         # Main widget
         self.mainwindow = self.toplevel1
     
-    def authenticate(self, user, username, password):
-        pass
-    
     def goBack(self):
         self.toplevel1.destroy()
         Application()
@@ -81,7 +79,6 @@ class LoginPage:
         else:
             print("Logic for faculty/librarian to be implemented")
 
-    
     def run(self):
         self.mainwindow.mainloop()
 

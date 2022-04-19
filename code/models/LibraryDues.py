@@ -38,8 +38,22 @@ class LibraryDues:
         db = dbc.register_database()
         query = "SELECT * FROM LIB_DUES WHERE rollNo = '" + str(roll_no) + "' AND book_id = '" + str(book_id) + "';"
         row = db.select(query, None)
-        
         s = { "roll_no": row[0], "book_id": row[1], "start_date": row[2], "return_date" : row[3], "amount_due" : row[4]}
+        return s
         
-    
-    
+    def studentDuesDetailed(self, roll_no):
+        # Sample output of l.studentDuesDetailed(2)
+        # [('2', 'Gopaal', 'Maths', '19', datetime.date(2022, 4, 25), '100'), ('2', 'Gopaal', 'Maths', '9', datetime.date(2022, 3, 29), '100')]
+        # Acess first row from response using row[0] and first element of row using row[0][0]
+        db = dbc.register_database()
+        query = '''
+        SELECT LIB_DUES.roll_no, STUDENT.name, BOOKS.title, LIB_DUES.book_id, LIB_DUES.return_date, LIB_DUES.amount_due
+        FROM BOOKS
+            INNER JOIN LIB_DUES ON BOOKS.id = LIB_DUES.book_id
+            INNER JOIN STUDENT ON STUDENT.rollNo = LIB_DUES.roll_no 
+            WHERE STUDENT.rollNo = ''' + str(roll_no) +'''
+        ORDER BY LIB_DUES.return_date DESC;
+        '''
+        row = db.selectAll(query)
+        return row
+

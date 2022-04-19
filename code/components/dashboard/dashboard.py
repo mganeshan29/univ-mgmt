@@ -3,11 +3,12 @@ import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
 
+from ...helper import constants as const
 from ..login_page import login_page as LP
 
 class DashBoard:
-    def __init__(self, title='', master=None, role = "Student"):
-        if (role == "Student"):
+    def __init__(self, title='', master=None, role = const.STUDENT_ROLE):
+        if (role == const.STUDENT_ROLE):
             self.title = title
             # build ui
             self.root = tk.Tk() if master is None else tk.Toplevel(master)

@@ -27,7 +27,7 @@ class register_database:
         self.cursor1.execute(query,value)
         self.con1.commit()
 
-    def select1(self,query):
+    def selectAll(self,query):
         self.cursor1.execute(query)
         row = self.cursor1.fetchall()
         self.con1.commit()
