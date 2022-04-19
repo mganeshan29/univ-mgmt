@@ -14,10 +14,7 @@ class Faculty:
                                         gender varchar(15), 
                                         password varchar(40)); 
                                                                 ''')
-        
-    # def __repr__(self) -> str:
-    #   return (self.id + ' ' + self.name)
-      
+
     def insert(self, data):
       db = dbc.register_database()
       query = "INSERT INTO STUDENT("
