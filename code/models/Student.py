@@ -50,6 +50,26 @@ class Student:
         s["gender"] = row[8]
         s["password"] = row[9]
         return s
+    
+    def selectAll(self):
+        db = dbc.register_database()
+        query = "SELECT * FROM STUDENT;"
+        rows = db.selectAll(query)
+        listOfStudents = []
+        for row in rows:
+            s = {}
+            s["name"] = row[0]
+            s["rollNo"] = row[1]
+            s["father_name"] = row[2]
+            s["mother_name"] = row[3]
+            s["phone_no"] = row[4]
+            s["address"] = row[5]
+            s["email"] = row[6]
+            s["dob"] = row[7]
+            s["gender"] = row[8]
+            s["password"] = row[9]
+            listOfStudents.append(s)
+        return listOfStudents
 
     def authenticate(self, rollNo, password):
         db = dbc.register_database()

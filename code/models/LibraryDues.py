@@ -40,6 +40,18 @@ class LibraryDues:
         row = db.select(query, None)
         s = { "roll_no": row[0], "book_id": row[1], "start_date": row[2], "return_date" : row[3], "amount_due" : row[4]}
         return s
+
+    def dueList(self):
+        db = dbc.register_database()
+        query = '''
+        SELECT LIB_DUES.roll_no, STUDENT.name, BOOKS.title, LIB_DUES.book_id, LIB_DUES.return_date, LIB_DUES.amount_due
+        FROM BOOKS
+            INNER JOIN LIB_DUES ON BOOKS.id = LIB_DUES.book_id
+            INNER JOIN STUDENT ON STUDENT.rollNo = LIB_DUES.roll_no 
+        ORDER BY LIB_DUES.return_date DESC;
+        '''
+        row = db.selectAll(query)
+        return row
         
     def studentDuesDetailed(self, roll_no):
         # Sample output of l.studentDuesDetailed(2)
