@@ -1,6 +1,8 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from .components.login_page import login_page
+from .helper import constants as const
+
 
 class Application:
     def __init__(self, master=None):
@@ -19,11 +21,11 @@ class Application:
         identity_label.configure(text='You are',background = 'white')
         identity_label.place(anchor='nw', relx='0.11', rely='0.32', x='0', y='0')
         
-        faculty_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = "faculty"), activebackground = "#a2083b", activeforeground = "white")
+        faculty_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = const.FACULTY_ROLE), activebackground = "#a2083b", activeforeground = "white")
         faculty_button.configure(text='faculty', background = "#ca0a4a",foreground = "black")
         faculty_button.place(anchor='nw', relheight='0.12', relwidth='0.8', relx='0.1', rely='0.47', x='0', y='0')
         
-        student_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = "Student"), activebackground = "#a2083b", activeforeground = "white")
+        student_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = const.STUDENT_ROLE), activebackground = "#a2083b", activeforeground = "white")
         student_button.configure(text='Student', background = "#ca0a4a",foreground = "black")
         student_button.place(anchor='nw', relheight='0.12', relwidth='0.8', relx='0.1', rely='0.77', x='0', y='0')
         
@@ -41,7 +43,6 @@ class Application:
     
     def run(self):
         self.mainwindow.mainloop()
-
 
 if __name__ == '__main__':
     app = Application()
