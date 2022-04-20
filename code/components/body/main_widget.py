@@ -110,7 +110,7 @@ class mainWidget:
         if self.header == "Fee Report":
             FR.FeeReportTable(master = self.root)
         elif self.header == "Library":
-            LRT.LibraryTable(master = self.root)
+            LRT.LibraryTable(master = self.root, role = self.role, title = self.title, id = self.id)
         
         
     def logout(self):

@@ -3,9 +3,10 @@ import tkinter.ttk as ttk
 
 from ..modals.AddBookModal import AddBookModal
 from ...models.Book import Book
+from ...helper import constants as const
 
 class LibraryTable:
-  def __init__(self, master):
+  def __init__(self, master, role, title, id):
       self.root = master
 
       self.s = Book()
@@ -17,8 +18,9 @@ class LibraryTable:
     #   self.search_entry = tk.Entry(self.root)
     #   self.search_entry.place(anchor = "nw", relx = '0.71', rely = '0.33')
       
-      add_book = tk.Button(self.root, text = "Add Book", command = self.addBook)
-      add_book.place(anchor="nw",  relx = '0.60', rely = '0.22')
+      if (role == const.LIBRARIAN_ROLE):
+        add_book = tk.Button(self.root, text = "Add Book", command = self.addBook)
+        add_book.place(anchor="nw",  relx = '0.60', rely = '0.22')
 
       refreshB = tk.Button(self.root, text = "Refresh", command = lambda:self.updateTable(self.s.selectAll()))
       refreshB.place(anchor="nw",  relx = '0.75', rely = '0.22')

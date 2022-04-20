@@ -89,9 +89,9 @@ class LoginPage:
             faculty = Faculty()
             f = faculty.authenticate(username, password)
             if f:
-                print(f["id"]+ " is Authenticated")
+                print(f["id"]+ " is Authenticated " + f["roles"])
                 self.toplevel1.destroy()
-                dashboard.DashBoard(role=const.FACULTY_ROLE, id=f["id"], title = f['name'])
+                dashboard.DashBoard(role=f["roles"], id=f["id"], title = f['name'])
             else:
                 print("Invalid Credentials")
                 msg.showinfo("Auth Error", "Enter the correct username and password")

@@ -93,7 +93,7 @@ class DashBoard:
             self.root.mainloop()
 
 # ================ FACULTY DASHBOARD =============
-        elif(role == const.FACULTY_ROLE):
+        else:
             self.title = title
             self.id = id
             # build ui
@@ -154,7 +154,7 @@ class DashBoard:
             mark_button.place(anchor='nw', height='188', relx='0.05',
                             rely='0.27', width='188', x='0', y='0')
 
-            library_button = tk.Button(self.root, bg="white", image=lib_image,command = self.onOpenLibrary)
+            library_button = tk.Button(self.root, bg="white", image=lib_image,command = lambda:self.onOpenLibrary())
             library_button.image = lib_image
             library_button.place(anchor='nw', height='188',
                                 relx='0.38', rely='0.27', width='188', x='0', y='0')
