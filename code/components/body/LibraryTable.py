@@ -20,10 +20,10 @@ class LibraryTable:
       
       if (role == const.LIBRARIAN_ROLE):
         add_book = tk.Button(self.root, text = "Add Book", command = self.addBook)
-        add_book.place(anchor="nw",  relx = '0.60', rely = '0.22')
+        add_book.place(anchor="nw",  relx = '0.70', rely = '0.22')
 
       refreshB = tk.Button(self.root, text = "Refresh", command = lambda:self.updateTable(self.s.selectAll()))
-      refreshB.place(anchor="nw",  relx = '0.75', rely = '0.22')
+      refreshB.place(anchor="nw",  relx = '0.83', rely = '0.22')
       
     #   clear_search_button = tk.Button(self.root, text = "Clear", command = self.clear)
     #   clear_search_button.place(anchor="nw",  relx = '0.9', rely = '0.372')

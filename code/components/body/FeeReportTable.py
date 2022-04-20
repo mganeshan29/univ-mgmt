@@ -8,19 +8,19 @@ class FeeReportTable:
       self.root = master
       
       search_label = tk.Label(self.root, text = "Search:")
-      search_label.place(anchor = "nw", rely = "0.33", relx = "0.64")
+      search_label.place(anchor = "nw", rely = "0.33", relx = "0.6")
       
       self.search_entry = tk.Entry(self.root)
-      self.search_entry.place(anchor = "nw", relx = '0.71', rely = '0.33')
+      self.search_entry.place(anchor = "nw", relx = '0.68', rely = '0.33')
       
       search_button = tk.Button(self.root, text = "Search", command = self.search)
       search_button.place(anchor="nw",  relx = '0.9', rely = '0.322')
       
       clear_search_button = tk.Button(self.root, text = "Clear", command = self.clear)
-      clear_search_button.place(anchor="nw",  relx = '0.9', rely = '0.372')
+      clear_search_button.place(anchor="nw",  relx = '0.9', rely = '0.382')
       
       delete_button = tk.Button(self.root, text = "Delete", command = self.delete)
-      delete_button.place(anchor="nw",  relx = '0.6', rely = '0.372')
+      delete_button.place(anchor="nw",  relx = '0.6', rely = '0.382')
       
  
       self.trv = ttk.Treeview(self.root, columns = (1,2,3,4,5,6,7,8), show = "headings", height = "6")

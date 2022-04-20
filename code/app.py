@@ -22,7 +22,7 @@ class Application:
         identity_label.place(anchor='nw', relx='0.11', rely='0.32', x='0', y='0')
         
         faculty_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = const.FACULTY_ROLE), activebackground = "#a2083b", activeforeground = "white")
-        faculty_button.configure(text='faculty', background = "#ca0a4a",foreground = "black")
+        faculty_button.configure(text='Faculty', background = "#ca0a4a",foreground = "black")
         faculty_button.place(anchor='nw', relheight='0.12', relwidth='0.8', relx='0.1', rely='0.47', x='0', y='0')
         
         student_button = tk.Button(self.toplevel1, command = lambda:self.openLogin(roleLogin = const.STUDENT_ROLE), activebackground = "#a2083b", activeforeground = "white")

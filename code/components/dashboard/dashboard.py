@@ -175,7 +175,7 @@ class DashBoard:
             student_button.place(anchor='nw', height='188', relx='0.38',
                             rely='0.65', width='188', x='0', y='0')
             
-            logout_button = tk.Button(self.root, bg="white", image=student_image, command=self.logout)
+            logout_button = tk.Button(self.root, bg="white", image=logOut_image, command=self.logout)
             logout_button.image = logOut_image
             logout_button.place(anchor='nw', height='188', relx='0.71',
                             rely='0.65', width='188', x='0', y='0')
