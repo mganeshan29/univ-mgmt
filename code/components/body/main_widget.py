@@ -66,25 +66,25 @@ class mainWidget:
         if(mainType != "Marksheet") :
             mark_button = tk.Button(self.root, command = self.onOpenMarks)
             mark_button.configure(text='Marksheet', width='11',font = self.label_font, activebackground = "#cf235c", activeforeground = "white", fg = "white",  bg = "#ca0a4a",bd = '2', highlightthickness= 0)
-            mark_button.place(anchor='nw', height='45', relx='0.13', rely='0.2', x='0', y='0')
+            mark_button.place(anchor='nw', height='45', relx='0.16', rely='0.2', x='0', y='0')
         else:
-            x='0.13';y='0.2'
+            x='0.16';y='0.2'
             
             
         if(mainType != "Library"):
             lib_button = tk.Button(self.root, command = self.onOpenLibrary)
             lib_button.configure(text='Library', width='11',font = self.label_font, activebackground = "#cf235c", activeforeground = "white", fg = "white",  bg = "#ca0a4a",bd = '2', highlightthickness= 0)
-            lib_button.place(anchor='nw', height='45', relx='0.26', rely='0.2', x='0', y='0')
+            lib_button.place(anchor='nw', height='45', relx='0.32', rely='0.2', x='0', y='0')
         else:
-            x='0.26';y='0.2'
+            x='0.32';y='0.2'
             
             
         if(mainType != "Profile"):
             profile_button = tk.Button(self.root, command = self.onOpenProfile)
             profile_button.configure(text='Profile', width='11',font = self.label_font, activebackground = "#cf235c", activeforeground = "white", fg = "white", bg = "#ca0a4a",bd = '2', highlightthickness= 0)
-            profile_button.place(anchor='nw', height='45', relx='0.38', rely='0.2', x='0', y='0')
+            profile_button.place(anchor='nw', height='45', relx='0.47', rely='0.2', x='0', y='0')
         else:
-            x='0.38';y='0.2'
+            x='0.47';y='0.2'
             
         active_button = tk.Button(self.root)
         active_button.configure(text=mainType, width='11',font = self.label_font, activebackground = "#d38a92", activeforeground ="#ca0a4a", bg = "#ea99a2", fg = "#ca0a4a",bd = '2', highlightthickness= 0)
