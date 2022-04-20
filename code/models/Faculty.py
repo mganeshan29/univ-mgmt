@@ -62,6 +62,25 @@ class Faculty:
         s["password"] = row[8]
         return s
       
+    def selectAll(self):
+        db = dbc.register_database()
+        query = "SELECT * FROM FACULTY;"
+        rows = db.selectAll(query)
+        listOfFaculties = []
+        for row in rows:
+            s = {}
+            s["name"] = row[0]
+            s["id"] = row[1]
+            s["roles"] = row[2]
+            s["phone_no"] = row[3]
+            s["address"] = row[4]
+            s["email"] = row[5]
+            s["dob"] = row[6]
+            s["gender"] = row[7]
+            s["password"] = row[8]
+            listOfFaculties.append(s)
+        return listOfFaculties
+      
     
     
 

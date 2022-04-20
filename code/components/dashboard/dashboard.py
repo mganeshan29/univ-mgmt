@@ -9,7 +9,7 @@ from ..login_page import login_page as lp
 from ..body import main_widget as main
 
 class DashBoard:
-    def __init__(self, id, title='', master=None, role = const.STUDENT_ROLE):
+    def __init__(self, id = '', title='', master=None, role = const.STUDENT_ROLE):
         self.role = role
         self.id = id
         self.title = title
@@ -126,6 +126,10 @@ class DashBoard:
             logOut_image = Image.open("code/images/LogingOut.png")
             logOut_image = logOut_image.resize((188, 188), Image.ANTIALIAS)
             logOut_image = ImageTk.PhotoImage(image=logOut_image)
+            
+            student_image = Image.open("code/images/Students.png")
+            student_image = student_image.resize((188, 188), Image.ANTIALIAS)
+            student_image = ImageTk.PhotoImage(image=student_image)
 
             page_header = ttk.Label(self.root)
             page_header.configure(background='#ca0a4a')
@@ -164,9 +168,16 @@ class DashBoard:
             profile_button.place(anchor='nw', height='188', relx='0.05',
                             rely='0.65', width='188', x='0', y='0')
             
-            logout_button = tk.Button(self.root, bg="white", image=logOut_image, command=self.logout)
+            
+            
+            student_button = tk.Button(self.root, bg="white", image=student_image, command=self.logout)
+            student_button.image = student_image
+            student_button.place(anchor='nw', height='188', relx='0.38',
+                            rely='0.65', width='188', x='0', y='0')
+            
+            logout_button = tk.Button(self.root, bg="white", image=student_image, command=self.logout)
             logout_button.image = logOut_image
-            logout_button.place(anchor='nw', height='188', relx='0.38',
+            logout_button.place(anchor='nw', height='188', relx='0.71',
                             rely='0.65', width='188', x='0', y='0')
             
 
@@ -196,3 +207,4 @@ class DashBoard:
             
         
         
+DashBoard()

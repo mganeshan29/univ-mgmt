@@ -36,5 +36,14 @@ class Mark:
         s = {"exam": row[0], "rollNo" : row[1], "marks" : row[2],"passMarks": row[3], "total" : row[4]}
         return s 
 
+    def selectAll(self):
+        db = dbc.register_database()
+        query = "SELECT * FROM MARKS;"
+        rows = db.selectAll(query)
+        listOfMarks = []
+        for row in rows:
+            s = {"exam": row[0], "rollNo" : row[1], "marks" : row[2],"passMarks": row[3], "total" : row[4]}
+            listOfMarks.append(s)
+        return listOfMarks
 
         

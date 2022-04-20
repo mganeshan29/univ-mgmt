@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import *
 import tkinter.ttk as ttk
 import tkinter.font as font
 from PIL import Image, ImageTk
@@ -6,6 +7,8 @@ from PIL import Image, ImageTk
 from ..dashboard import dashboard
 from ...helper import constants as const
 from ..login_page import login_page as lp
+from ...models.FeeReport import FeeReport
+from . import FeeReportTable as FR
 
 
 class mainWidget:
@@ -15,6 +18,7 @@ class mainWidget:
         self.id = id
         self.role = role
         self.title = title
+        self.header = mainType
         
         logout_image = Image.open("code/images/LogOut.png")
         logout_image = logout_image.resize((40, 40), Image.ANTIALIAS)
@@ -95,8 +99,16 @@ class mainWidget:
         previous_button.image = previous_image
         previous_button.place(anchor="nw", relx="0.04",
                             rely="0.055", x="0", y='0')
+        self.table()
         
         self.root.configure(height='200', width='200')
+        
+        
+        
+    
+    def table(self):
+        if self.header == "Fee Report":
+            FR.FeeReportTable(master = self.root)
         
         
     def logout(self):

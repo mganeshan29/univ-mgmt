@@ -4,8 +4,8 @@ class FeeReport:
     def __init__(self):
         db = dbc.register_database()
         db.createTable('''
-            CREATE TABLE IF NOT EXISTS FEEREPORT (roll varchar(50) NOT NULL PRIMARY KEY,
-                                        receipt varchar(25) ,
+            CREATE TABLE IF NOT EXISTS FEEREPORT (roll varchar(50),
+                                        receipt varchar(25)  NOT NULL PRIMARY KEY,
                                         date varchar(25),
                                         branch varchar(25),
                                         sem DOUBLE,
@@ -17,10 +17,15 @@ class FeeReport:
     def select(self, roll_no):
         db = dbc.register_database()
         query = "SELECT * FROM FEEREPORT WHERE roll = '" + roll_no + "';"
-        row = db.select(query, None)
-        print(query)
-        s = {"roll": row[0], "receipt" : row[1], "date" : row[2], "branch" : row[3], "sem" : row[4], "total_amt" : row[5], "paid_amt" : row[6], "due_amt" : row[7]}
-        return s
+        rows = db.selectAll(query)
+        return rows
+    
+    def selectReceipt(self, receipt):
+        db = dbc.register_database()
+        query = "SELECT * FROM FEEREPORT WHERE receipt = '" + receipt + "';"
+        rows = db.selectAll(query)
+        return rows
+    
     def insert(self, data):
         db = dbc.register_database()
         query = "INSERT INTO FEEREPORT("
@@ -32,3 +37,15 @@ class FeeReport:
         query = query[:-1] + ");"
         db.insert(query)
         print("Successfully inserted FEEREPORT")
+        
+    def selectAll(self):
+        db = dbc.register_database()
+        query = "SELECT * FROM FEEREPORT;"
+        rows = db.selectAll(query)
+        return rows
+    
+    def deleteReceipt(self, receipt):
+        db = dbc.register_database()
+        query = "DELETE FROM FEEREPORT WHERE receipt = '" + receipt + "';"
+        db.delete(query, None)
+        print("Deletion was successful");
