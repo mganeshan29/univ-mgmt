@@ -4,7 +4,7 @@ import tkinter.font as font
 from PIL import Image, ImageTk
 
 from ...helper import constants as const
-from ..login_page import login_page as lp
+from ..login_page import login_page as LP
 
 from ..body import main_widget as main
 
@@ -186,7 +186,7 @@ class DashBoard:
 
     def logout(self):
         self.root.destroy()
-        lp.LoginPage(role = const.STUDENT_ROLE)
+        LP.LoginPage(role = self.role)
         
         
     def onOpenProfile(self):
@@ -204,7 +204,3 @@ class DashBoard:
     def onOpenMarks(self):
         self.canvas1.destroy()
         main.mainWidget(mainType = "Marksheet", master = self.root, id = self.id, title = self.title, role = self.role)
-            
-        
-        
-DashBoard()

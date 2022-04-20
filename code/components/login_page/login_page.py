@@ -83,8 +83,8 @@ class LoginPage:
                 dashboard.DashBoard(role = const.STUDENT_ROLE, title = s["name"], id = s['rollNo'])
                 # dashboard.DashBoard(role="Student", rollNo=s["rollNo"])
             else:
-                # msg.showinfo("Auth Error", "Enter the correct username and password")
                 print("Invalid Credentials")
+                msg.showinfo("Auth Error", "Enter the correct username and password")
         elif(role == const.FACULTY_ROLE):
             faculty = Faculty()
             f = faculty.authenticate(username, password)
@@ -93,6 +93,7 @@ class LoginPage:
                 self.toplevel1.destroy()
                 dashboard.DashBoard(role=const.FACULTY_ROLE, id=f["id"], title = f['name'])
             else:
+                print("Invalid Credentials")
                 msg.showinfo("Auth Error", "Enter the correct username and password")
 
     def run(self):

@@ -7,8 +7,8 @@ from PIL import Image, ImageTk
 from ..dashboard import dashboard
 from ...helper import constants as const
 from ..login_page import login_page as lp
-from ...models.FeeReport import FeeReport
 from . import FeeReportTable as FR
+from . import LibraryTable as LRT
 
 
 class mainWidget:
@@ -109,6 +109,8 @@ class mainWidget:
     def table(self):
         if self.header == "Fee Report":
             FR.FeeReportTable(master = self.root)
+        elif self.header == "Library":
+            LRT.LibraryTable(master = self.root)
         
         
     def logout(self):
