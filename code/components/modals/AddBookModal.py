@@ -50,7 +50,7 @@ class AddBookModal:
         self.button1.configure(text="Submit")
         self.button1.place(anchor="nw", relx="0.13", rely="0.75", x="0", y="0")
 
-        self.button2 = ttk.Button(self.toplevel1)
+        self.button2 = ttk.Button(self.toplevel1, command=self.goBack)
         self.button2.configure(text="Back")
         self.button2.place(anchor="nw", relx="0.42", rely="0.75", x="0", y="0")
 
@@ -59,6 +59,9 @@ class AddBookModal:
 
     def run(self):
         self.mainwindow.mainloop()
+
+    def goBack(self):
+        self.toplevel1.destroy()
     
     def insertBook(self):
         entries = [self.entry1, self.entry2, self.entry3, self.entry4, self.entry5, self.entry6]

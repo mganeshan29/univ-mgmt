@@ -7,6 +7,9 @@ from ...models.Book import Book
 class LibraryTable:
   def __init__(self, master):
       self.root = master
+
+      self.s = Book()
+      rows = self.s.selectAll()
       
     #   search_label = tk.Label(self.root, text = "Search:")
     #   search_label.place(anchor = "nw", rely = "0.33", relx = "0.64")
@@ -15,7 +18,10 @@ class LibraryTable:
     #   self.search_entry.place(anchor = "nw", relx = '0.71', rely = '0.33')
       
       add_book = tk.Button(self.root, text = "Add Book", command = self.addBook)
-      add_book.place(anchor="nw",  relx = '0.75', rely = '0.22')
+      add_book.place(anchor="nw",  relx = '0.60', rely = '0.22')
+
+      refreshB = tk.Button(self.root, text = "Refresh", command = lambda:self.updateTable(self.s.selectAll()))
+      refreshB.place(anchor="nw",  relx = '0.75', rely = '0.22')
       
     #   clear_search_button = tk.Button(self.root, text = "Clear", command = self.clear)
     #   clear_search_button.place(anchor="nw",  relx = '0.9', rely = '0.372')
@@ -26,9 +32,6 @@ class LibraryTable:
  
       self.trv = ttk.Treeview(self.root, columns = (1,2,3,4,5,6), show = "headings", height = "6")
       self.trv.place(anchor='nw', height='45', rely='0.6',relwidth= "1", relheight = "0.4", x='0', y='0')
-      
-      self.s = Book()
-      rows = self.s.selectAll()
       
       self.trv.column("#0", width = 100, minwidth = 25)
       for i in range(1,7):
